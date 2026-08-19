@@ -1,5 +1,7 @@
 package com.shiva.trainbookingbackend.controller;
 
+import com.shiva.trainbookingbackend.dto.LoginRequest;
+import com.shiva.trainbookingbackend.dto.LoginResponse;
 import com.shiva.trainbookingbackend.dto.RegisterRequest;
 import com.shiva.trainbookingbackend.service.AuthService;
 import jakarta.validation.Valid;
@@ -18,5 +20,10 @@ public class AuthController {
     @PostMapping("/register")
     public String register(@Valid @RequestBody RegisterRequest request) {
         return authService.register(request);
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(@RequestBody LoginRequest request) {
+        return authService.login(request);
     }
 }
